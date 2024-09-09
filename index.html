@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Spidey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css"
+        integrity="sha512-/VYneElp5u4puMaIp/4ibGxlTd2MV3kuUIroR3NSQjS2h9XKQNebRQiyyoQKeiGE9mRdjSCIZf9pb7AVJ8DhCg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+        <nav>
+            <div class="logo">
+                <img src="images/white-logo-spiderman.png" alt="">
+            </div>
+            <div class="menu">
+                <i class="ri-bar-chart-horizontal-line"></i>
+            </div>
+            <div class="flag">
+                <img src="images/flag.png" alt="">
+                <i class="ri-arrow-down-s-fill"></i>
+                <div class="current">
+                    <span>ENG</span>
+                </div>
+            </div>
+            <button><i class="ri-search-line"></i></button>
+        </nav>
+        <div class="container">
+            <div class="swiper thumbs">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="number">01</div>
+                        <img src="images/spiderman-mask.png" />
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="number">02</div>
+                        <img src="images/spiderman-handjpg.png" />
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="number">03</div>
+                        <img src="images/spiderman-helmet.png" />
+                    </div>
+                </div>
+            </div>
+            <div class="swiper main-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background: #3281c2;">
+                        <img src="images/spiderman-mask.png" style=" transform: scale(1.5);" />
+                        <div class="text">
+                            <h2>SPIDER</h2>
+                            <h2>MAN</h2>
+                            <p>SUPERHERO</p>
+                        </div>
+                        <div class="spider">
+                            <img src="images/pink-logo-spiderman.png" alt=""
+                                style="filter: invert(8%) sepia(55%) saturate(2056%) hue-rotate(196deg) brightness(95%) contrast(106%);">
+                        </div>
+                    </div>
+                    <div class="swiper-slide intro">
+                        <img class="hand" src="images/spiderman-handjpg.png" />
+                        <div class="text">
+                            <h2>SPIDER</h2>
+                            <h2>MAN</h2>
+                            <p>SUPERHERO</p>
+                        </div>
+                        <div class="spider">
+                            <img src="images/pink-logo-spiderman.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background: #3281c2;">
+                        <img src="images/spiderman-helmet.png" style=" transform: scale(1.2);" />
+                        <div class="text">
+                            <h2>SPIDER</h2>
+                            <h2>MAN</h2>
+                            <p>SUPERHERO</p>
+                        </div>
+                        <div class="spider">
+                            <img src="images/pink-logo-spiderman.png" alt=""
+                                style="filter: invert(8%) sepia(55%) saturate(2056%) hue-rotate(196deg) brightness(95%) contrast(106%);">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"><i class="ri-arrow-right-s-fill"></i></div>
+                <div class="swiper-button-prev"><i class="ri-arrow-left-s-fill"></i></div>
+            </div>
+        </div>
+        <div class="socials">
+            <a href="">FB</a>
+            <a href="">YT</a>
+            <a href="">TW</a>
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var thumbs = new Swiper(".thumbs", {
+            centeredSlidesBounds: true,
+            slidesPerView: 2,
+            direction: 'horizontal',
+            watchOverflow: true,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+            spaceBetween: 20,
+            speed: 1200,
+        });
+        var slider = new Swiper(".main-slider", {
+            spaceBetween: 1000,
+            initialSlide: 1,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            effect: "coverflow",
+            speed: 2000,
+            thumbs: {
+                swiper: thumbs,
+            },
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+        });
+
+
+        gsap.from(".intro .spider img", {
+            scale: 0,
+            opacity: 0,
+            duration: 1.5,
+            delay: 0.5,
+        })
+        gsap.from(".intro .hand", {
+            y: 1000,
+            opacity: 0,
+            duration: 1.5,
+            delay: 0.5,
+        })
+        gsap.from(".intro h2", {
+            y: 10,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            delay: 1,
+        })
+        gsap.from(".thumbs .swiper-slide", {
+            x: 1000,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            delay: 1,
+        })
+
+    </script>
+</body>
+
+</html>
